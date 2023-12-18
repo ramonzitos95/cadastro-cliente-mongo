@@ -1,31 +1,12 @@
-from conexaomongo.conexao import clientdb
-
-db = clientdb['clientes']
-clientes_collection = db['cliente']
-
-# Função para inserir um cliente
-def inserir_cliente(cliente):
-    clientes_collection.insert_one(cliente)
-
-# Função para buscar todos os clientes
-def buscar_todos_clientes():
-    return list(clientes_collection.find())
-
-# Função para buscar um cliente por ID
-def buscar_cliente_por_id(cliente_id):
-    return clientes_collection.find_one({'_id': cliente_id})
-
-# Função para atualizar um cliente por ID
-def atualizar_cliente(cliente_id, novos_dados):
-    clientes_collection.update_one({'_id': cliente_id}, {'$set': novos_dados})
-
-# Função para excluir um cliente por ID
-def excluir_cliente(cliente_id):
-    clientes_collection.delete_one({'_id': cliente_id})
+from repositorios.clienterepositorio import atualizar_cliente, buscar_todos_clientes, atualizar_cliente, excluir_cliente, inserir_cliente, buscar_cliente_por_id, clientdb
 
 # Exemplo de uso:
-cliente1 = {'_id': 1, 'nome': 'Cliente A', 'email': 'cliente.a@email.com', 'telefone': '123456789'}
-cliente2 = {'_id': 2, 'nome': 'Cliente B', 'email': 'cliente.b@email.com', 'telefone': '987654321'}
+#cliente1 = {'_id': 1, 'nome': 'Cliente A', 'email': 'cliente.a@email.com', 'telefone': '123456789'}
+#cliente2 = {'_id': 2, 'nome': 'Cliente B', 'email': 'cliente.b@email.com', 'telefone': '987654321'}
+#cliente1 = {'_id': 3, 'nome': 'Cliente B', 'email': 'cliente.b@email.com', 'telefone': '987654321'}
+#cliente2 = {'_id': 4, 'nome': 'Cliente B', 'email': 'cliente.b@email.com', 'telefone': '987654321'}
+cliente1 = {'_id': 5, 'nome': 'João Alves', 'email': 'joao.b@email.com', 'telefone': '987654666'}
+cliente2 = {'_id': 6, 'nome': 'Maria Renata', 'email': 'maria.b@email.com', 'telefone': '987654555'}
 
 # Inserir clientes
 inserir_cliente(cliente1)
