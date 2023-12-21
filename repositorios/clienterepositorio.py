@@ -1,4 +1,5 @@
 from conexaomongo.conexao import clientdb
+import uuid
 
 db = clientdb['clientes']
 clientes_collection = db['cliente']
@@ -22,3 +23,9 @@ def atualizar_cliente(cliente_id, novos_dados):
 # Função para excluir um cliente por ID
 def excluir_cliente(cliente_id):
     clientes_collection.delete_one({'_id': cliente_id})
+    
+def generate_fictitious_id():
+    # Gera um UUID (identificador único universal)
+    fictitious_id = str(uuid.uuid4())
+    
+    return fictitious_id
